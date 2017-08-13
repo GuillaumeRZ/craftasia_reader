@@ -9,6 +9,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
+
 <h1>Function reader</h1>
 
 <?php
@@ -34,17 +35,13 @@ echo '<select name="filesList" id="filesList">';
 // Personnalize that with your own path
 listdir('functions');
 echo '</select>';
-
-function writeEdition() {
-
-}
 ?>
 
 <div class="mui-textfield">
 	<textarea name="fileEdition" id="fileEdition" placeholder="Vos fonctions..."></textarea>
 </div>
 <button class="mui-btn mui-btn--primary" id="saveFile">Save this version</button>
-	
+
 <script src="script.js"></script>
 </body>
 

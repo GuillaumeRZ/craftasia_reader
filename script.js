@@ -25,6 +25,16 @@ function saveFile() {
 	console.log(fileEdition.value);
 	console.log(files.value);
 
+	$.ajax({
+		type: "POST",
+		url: "savedFile.php",
+		data: {data_to_send:"data_object"},
+		success:function(data){
+			alert(data);
+		}
+	});
+
+	window.location.replace("./savedFile.php");
 }
 
 // Manage the first loading
