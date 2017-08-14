@@ -5,36 +5,40 @@ const saveButton = document.querySelector('#saveFile');
 
 const xhttp = new XMLHttpRequest();
 if (!xhttp) {
-	console.error('Cannot create an XMLHTTP instance');
+  console.error('Cannot create an XMLHTTP instance');
 }
 
 function openFile() {
-	// Opening the file selected and display the text
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-      		// fileEdition refers to the textarea
-      		fileEdition.value = this.responseText;
-    	}
-  	};
-  	// this.value refers to the current path contain in our <option> selected
-  	xhttp.open("GET", files.value, true);
-  	xhttp.send();
+  // Opening the file selected and display the text
+  xhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+      // fileEdition refers to the textarea
+      fileEdition.value = this.responseText;
+    }
+  };
+  // this.value refers to the current path contain in our <option> selected
+  xhttp.open('GET', files.value, true);
+  xhttp.send();
 }
 
 function saveFile() {
-	console.log(fileEdition.value);
-	console.log(files.value);
+  console.log(fileEdition.value);
+  console.log(files.value);
 
-	$.ajax({
-		type: "POST",
-		url: "savedFile.php",
-		data: {data_to_send:"data_object"},
-		success:function(data){
-			alert(data);
-		}
-	});
-
-	window.location.replace("./savedFile.php");
+  $.ajax({
+    type: 'POST',
+    url: 'savedFile.php',
+    data: {
+      filePath: files.value,
+      fileEdition: fileEdition.value,
+    },
+    success: function (res) {
+      $('#result').html(res);
+    },
+    error: function (res) {
+      alert('Une erreur est survenue');
+    }
+  });
 }
 
 // Manage the first loading

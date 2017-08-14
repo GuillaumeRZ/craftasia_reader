@@ -42,6 +42,8 @@ echo '</select>';
 </div>
 <button class="mui-btn mui-btn--primary" id="saveFile">Save this version</button>
 
+<div id='result'></div>
+
 <script src="script.js"></script>
 </body>
 
