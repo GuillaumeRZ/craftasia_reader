@@ -32,7 +32,7 @@ function listdir($currentdir){
     closedir($dir); 
 }
 echo '<select name="filesList" id="filesList">';
-// Personnalize that with your own path
+// Personnalize that with your own path:
 listdir('functions');
 echo '</select>';
 ?>
